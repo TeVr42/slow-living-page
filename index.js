@@ -1,13 +1,9 @@
 var numberOfTexts = document.querySelectorAll(".text").length
-$(".text").hide(0)
-
-$(".list0").slideDown(1000)
 var iList = 0
-
 $("#next-btn").click(toggleText)
 $("#all-btn").click(showAll)
 $("#reload-btn").click(pageReload)
-$("#reload-btn").hide()
+pageReload()
 
 function toggleText() {
     $(".list" + iList).fadeOut(0)
@@ -22,10 +18,15 @@ function toggleText() {
 function showAll() {
     $(".text").slideDown(1000)
     $("#reload-btn").show()
-    $("#next-btn").hide(0)
-    $("#all-btn").hide(0)
+    $("#next-btn").hide()
+    $("#all-btn").hide()
 }
 
 function pageReload() {
-    location.reload()
+    $(".text").hide(0)
+    iList = 0
+    $(".list0").slideDown(1000)
+    $("#reload-btn").hide()
+    $("#next-btn").show()
+    $("#all-btn").show()
 }
